@@ -78,7 +78,16 @@ module VagrantDNS
           installer.purge!
         end
       else
-        raise 'installing and uninstalling is only supported on Mac OS X at the moment.'
+        installer_options = options.fetch(:installer_opts, {})
+        installer = VagrantDNS::Installers::Linux.new(tmp_path, installer_options)
+
+        if options[:install]
+          installer.install!
+        elsif options[:uninstall]
+          installer.uninstall!
+        elsif options[:purge]
+          installer.purge!
+        end
       end
     end
 

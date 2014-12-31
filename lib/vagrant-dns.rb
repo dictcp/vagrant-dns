@@ -3,6 +3,7 @@ require "vagrant-dns/config"
 
 require "vagrant-dns/service"
 require "vagrant-dns/installers/mac"
+require "vagrant-dns/installers/linux"
 require "vagrant-dns/restart_middleware"
 require "vagrant-dns/configurator"
 
